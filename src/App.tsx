@@ -8,7 +8,7 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Mail from './pages/Mail';
 import NotFound from './pages/Notfound'
-
+import UserPage from './pages/UserPage';
 function App() {
     return (
         <div>
@@ -19,6 +19,7 @@ function App() {
                     <Route path = "/SignIn" element = {<SignIn />}/>
                     <Route path = "/SignUP" element = {<SignUp />}/>
                     <Route path ="/Mail" element = {<Mail />}/>
+                    <Route path = "/UserPage" element = {<UserPage />} />
                     <Route path = "*" element = {<NotFound />}/>
                 </Routes>
             </BrowserRouter>
