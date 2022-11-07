@@ -33,6 +33,8 @@ function Copyright(props: any) {
 const theme = createTheme({});
 
 export default function SignIn() {
+    const navigate = useNavigate();
+
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -40,11 +42,8 @@ export default function SignIn() {
             username: data.get('username'),
             password: data.get('password'),
         });
-        <MailList />
+        navigate('/UserPage');
     };
-
-    const navigate = useNavigate();
-
     return (
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
