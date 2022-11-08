@@ -14,7 +14,12 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { useNavigate } from 'react-router-dom';
+<<<<<<< Updated upstream
 import axios, {AxiosRequestConfig, AxiosResponse,AxiosError} from 'axios';
+=======
+import axios from 'axios';
+
+>>>>>>> Stashed changes
 
 type User = {
     id:number;
@@ -48,6 +53,7 @@ export default function SignIn() {
             mailadress: data.get('email'),
             password: data.get('password'),
         });
+<<<<<<< Updated upstream
         const url = "http://localhost:3000";
 
         try {
@@ -72,6 +78,10 @@ export default function SignIn() {
             console.log(error)
         }
 
+=======
+        
+        navigate('/UserPage');
+>>>>>>> Stashed changes
     };
     return (
         <ThemeProvider theme={theme}>
