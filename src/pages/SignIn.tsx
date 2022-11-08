@@ -14,8 +14,14 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axios, {AxiosRequestConfig, AxiosResponse,AxiosError} from 'axios';
 
+type User = {
+    id:number;
+    name:string;
+    mailadress:string;
+    password:string;
+}
 
 function Copyright(props: any) {
     return (
@@ -39,10 +45,33 @@ export default function SignIn() {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         console.log({
-            username: data.get('username'),
+            mailadress: data.get('email'),
             password: data.get('password'),
         });
-        navigate('/UserPage');
+        const url = "http://localhost:3000";
+
+        try {
+            const options:AxiosRequestConfig ={
+                url:"http://localhost:3000/login",
+                method:"GET",
+                params:{
+                    email:data.get('email'),
+                    password:data.get('password')
+                }
+            };
+            axios(options)
+                .then((res: AxiosResponse<User>) =>{
+                    const {data,status}=res;
+                    console.log(res.data);
+                    console.log(res.status);
+                    navigate('/UserPage')
+                })
+            //console.log("poyopoyo");
+        } catch (error) {
+            alert("adress or password are wrong")
+            console.log(error)
+        }
+
     };
     return (
         <ThemeProvider theme={theme}>
@@ -67,10 +96,10 @@ export default function SignIn() {
                             margin="normal"
                             required
                             fullWidth
-                            id="username"
-                            label="User Name"
-                            name="username"
-                            autoComplete="username"
+                            id="email"
+                            label="MailAdress"
+                            name="email"
+                            autoComplete="email"
                             autoFocus
                         />
                         <TextField
