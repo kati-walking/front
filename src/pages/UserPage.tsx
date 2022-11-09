@@ -4,6 +4,11 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import allLocales from '@fullcalendar/core/locales-all';
 import interactionPlugin,{DateClickArg} from '@fullcalendar/interaction';
 import { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios, {AxiosRequestConfig, AxiosResponse,AxiosError} from 'axios';
+
+
+
 export default function UserPage(){
     const thisMonth = () => {
         const today = new Date();
@@ -12,8 +17,10 @@ export default function UserPage(){
             "0"
         )}`;
     };
+    const navigate = useNavigate();
     const handleDateClick = useCallback((arg:DateClickArg)=>{
-        alert(arg.dateStr);
+        //alert(arg.dateStr);
+        navigate('/MailList')
     },[]);
     return(
         <FullCalendar

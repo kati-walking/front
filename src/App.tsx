@@ -9,6 +9,7 @@ import SignUp from './pages/SignUp';
 import Mail from './pages/Mail';
 import NotFound from './pages/Notfound'
 import UserPage from './pages/UserPage';
+import RegistAdress from './pages/RegistAdress';
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                     <Route path = "/SignUP" element = {<SignUp />}/>
                     <Route path ="/Mail" element = {<Mail />}/>
                     <Route path = "/UserPage" element = {<UserPage />} />
+                    <Route path = "/RegistAdress" element = {<RegistAdress />} />
                     <Route path = "*" element = {<NotFound />}/>
                 </Routes>
             </BrowserRouter>
