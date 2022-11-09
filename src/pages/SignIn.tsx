@@ -42,7 +42,9 @@ const theme = createTheme({});
 
 export default function SignIn() {
     const navigate = useNavigate();
+
     
+
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -66,7 +68,7 @@ export default function SignIn() {
                     const {data,status}=res;
                     console.log(res.data);
                     console.log(res.status);
-                    navigate('/UserPage')
+                    navigate('/UserPage/'+res.data.id)
                 })
             //console.log("poyopoyo");
         } catch (error) {

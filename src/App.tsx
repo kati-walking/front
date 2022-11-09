@@ -10,6 +10,7 @@ import Mail from './pages/Mail';
 import NotFound from './pages/Notfound'
 import UserPage from './pages/UserPage';
 import RegistAdress from './pages/RegistAdress';
+import MailList from './pages/MailList';
 
 function App() {
     return (
@@ -20,7 +21,8 @@ function App() {
                     <Route path = "/SignIn" element = {<SignIn />}/>
                     <Route path = "/SignUP" element = {<SignUp />}/>
                     <Route path ="/Mail" element = {<Mail />}/>
-                    <Route path = "/UserPage" element = {<UserPage />} />
+                    <Route path ="/MailList/:id" element = {<MailList />}/>
+                    <Route path = "/UserPage/:id" element = {<UserPage />} />
                     <Route path = "/RegistAdress" element = {<RegistAdress />} />
                     <Route path = "*" element = {<NotFound />}/>
                 </Routes>
