@@ -73,9 +73,6 @@ export default function SignIn() {
             alert("adress or password are wrong")
             console.log(error)
         }
-
-        
-        navigate('/UserPage');
     };
     return (
         <ThemeProvider theme={theme}>

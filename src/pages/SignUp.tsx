@@ -14,6 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { useNavigate} from 'react-router-dom'
+import axios, {AxiosRequestConfig, AxiosResponse,AxiosError} from 'axios';
 
 function Copyright(props: any) {
     return (
@@ -40,7 +41,32 @@ export default function SignUp() {
             email: data.get('email'),
             password: data.get('password'),
         });
-        navigate('/UserPage');
+        try {
+            const options:AxiosRequestConfig ={
+                url:"http://localhost:3000/login",
+                method:"GET",
+                params:{
+                    username:data.get('UserName'),
+                    email:data.get('email'),
+                    password:data.get('password')
+                }
+            };
+            axios(options)
+                .then((res: AxiosResponse<{
+                    username:string,
+                    email:string,
+                    password:string,
+                }>) =>{
+                    const {data,status}=res;
+                    console.log(res.data);
+                    console.log(res.status);
+                    navigate('/SignIn')
+                })
+            //console.log("poyopoyo");
+        } catch (error) {
+            alert("adress or password are wrong")
+            console.log(error)
+        }
     };
 
     return (
